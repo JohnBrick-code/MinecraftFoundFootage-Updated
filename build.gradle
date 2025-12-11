@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.9-SNAPSHOT'
+	id 'fabric-loom' version '1.16-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -28,23 +28,23 @@ repositories {
 	//CCA
 	maven {
 		name = "Ladysnake Mods"
-		url = 'https://maven.ladysnake.org/releases'
+		url = 'maven.ladysnake.org'
 	}
 
 	//Mod Menu
 	maven {
 		name = "Terraformers"
-		url = "https://maven.terraformersmc.com/"
+		url = "maven.terraformersmc.com"
 	}
 
 	//Midnight lib
 	maven {
-		url = "https://api.modrinth.com/maven"
+		url = "api.modrinth.com"
 	}
 
 	//GeckoLib
 	maven {
-		url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+		url 'dl.cloudsmith.io'
 		content {
 			includeGroupByRegex("software\\.bernie.*")
 			includeGroup("com.eliotlash.mclib")
@@ -53,13 +53,13 @@ repositories {
 
 	//Simple Voice Chat
 	maven {
-		url = 'https://maven.maxhenkel.de/repository/public'
+		url = 'maven.maxhenkel.de'
 	}
 
 
 	maven {
 		name = "Modrinth"
-		url = "https://api.modrinth.com/maven"
+		url = "api.modrinth.com"
 		content {
 			includeGroup "maven.modrinth"
 		}
@@ -111,13 +111,13 @@ dependencies {
 	implementation "de.maxhenkel.voicechat:voicechat-api:2.5.0"
 	modImplementation "maven.modrinth:simple-voice-chat:fabric-${voicechat_version}"
 
-	//Sound Physics Remastered compat
+	//Sound Physics Remastered compat (Update these if you can find 1.21.8 versions)
 	modCompileOnly "maven.modrinth:qyVF9oeo:fabric-1.20.1-1.4.8"
 
-	//Essential Compat
+	//Essential Compat (Update these if you can find 1.21.8 versions)
 	modCompileOnly "maven.modrinth:essentialclient:1.20.1-1.4.2"
 
-	//Essential Compat
+	//Essential Compat (Update these if you can find 1.21.8 versions)
 	modCompileOnly "maven.modrinth:k2ZPuTBm:1.3.5.6"
 	
 }
@@ -131,7 +131,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {
@@ -140,8 +140,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
@@ -159,7 +159,7 @@ publishing {
 		}
 	}
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+	// See docs.gradle.org for information on how to set up publishing.
 	repositories {
 		// Add repositories to publish to here.
 		// Notice: This block does NOT have the same function as the block in the top level.
